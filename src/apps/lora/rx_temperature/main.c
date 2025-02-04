@@ -106,7 +106,7 @@ void OnRadioRxdone (uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
          
          // Temperature in C (0.25 steps)
         temperature = temperature_reg * 0.25;
-        NRF_LOG_INFO("LoRa frame %d received with RSSI: %d dBm.\r\nRemote temperature = "NRF_LOG_FLOAT_MARKER " \C", frame_counter, rssi, NRF_LOG_FLOAT(temperature));
+        NRF_LOG_INFO("LoRa frame %d received with RSSI: %d dBm and SNR: %d.\r\nRemote temperature = "NRF_LOG_FLOAT_MARKER " \C", frame_counter, rssi, snr, NRF_LOG_FLOAT(temperature));
     }
 
     // Restart Rx
