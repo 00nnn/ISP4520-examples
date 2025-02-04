@@ -46,14 +46,14 @@
 #define TX_OUTPUT_POWER                             14          // dBm
 #define RF_FREQUENCY                                923000000   // Hz
 #elif defined(ISP4520_US)
-#define TX_OUTPUT_POWER                             20          // dBm
+#define TX_OUTPUT_POWER                             22          // dBm
 #define RF_FREQUENCY                                915000000   // Hz
 #else
     #error "Please define a ISP4520 configuration"
 #endif
 
 
-#define LORA_BANDWIDTH                              0       // [0: 125 kHz,
+#define LORA_BANDWIDTH                              2       // [0: 125 kHz,
                                                             //  1: 250 kHz,
                                                             //  2: 500 kHz,
                                                             //  3: Reserved]
@@ -198,7 +198,7 @@ int main(void)
     tx_lora_periodic_handler(NULL);
 
     // Enter main loop.
-    for (;;)
+    while (1)
     {
         app_sched_execute();
         Radio.IrqProcess();
