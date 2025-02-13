@@ -98,13 +98,13 @@ uint32_t at_phy_open(at_phy_events_handler_t events_handler) {
     // Initialize app_uart
     app_uart_comm_params_t const comm_params =
         {
-            .rx_pin_no = PIN_UART_RX,
-            .tx_pin_no = PIN_UART_TX,
-            .rts_pin_no = PIN_UART_RTS,
-            .cts_pin_no = PIN_UART_CTS,
+            .rx_pin_no = PIN_UART_RX, // Pin P0_08
+            .tx_pin_no = PIN_UART_TX, // Pin P0_06
+            .rts_pin_no = PIN_UART_RTS, // Pin P0_07
+            .cts_pin_no = PIN_UART_CTS, // Pin P0_05
             .flow_control = APP_UART_FLOW_CONTROL_DISABLED,
             .use_parity = false,
-            .baud_rate = NRF_UART_BAUDRATE_38400};
+            .baud_rate = NRF_UART_BAUDRATE_115200};
 
     APP_UART_FIFO_INIT(&comm_params,
         UART_RX_BUF_SIZE,
